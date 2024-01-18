@@ -4,17 +4,6 @@ require 'functions.php';
 $method = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 
-// echo pre($request);
-// echo pre($method);
-
-// $routes = [
-//     'list' => 'listCars',
-//     'one' => 'getCar',
-//     'new' => 'newCar',
-//     'update' => 'updateCar',
-//     'delete' => 'deleteCar',
-// ];
-
 // Executa a operação de geração de token
 if ($method == 'POST' && $request[1] == 'generate-token') {
     $input = json_decode(file_get_contents('php://input'), true);
@@ -38,9 +27,6 @@ if (!validateToken($token)) {
     echo json_encode(['error' => 'Acesso não autorizado']);
     exit();
 }
-
-// echo pre($request);
-// echo pre($method);
 
 switch ($method) {
     case 'GET':
