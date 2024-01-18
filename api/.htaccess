@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # RewriteRule ^carros/(.*)$ index.php/$1 [QSA,L]
+
+    RewriteRule ^carros/(.*)$ cars/index.php/$1 [QSA,L]
+    RewriteRule ^pessoas/(.*)$ persons/index.php/$1 [QSA,L]
+</IfModule>
